@@ -1,0 +1,115 @@
+:root {
+  --base-color: #111;
+  --light-grey: #282b2e;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.pageContentWrapper {
+  margin-bottom: 100px; /* Height of footer*/
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: #ccc;
+}
+
+.all {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background-color: var(--base-color);
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+.navbar_container {
+  background-color: #0000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+}
+
+.navbar {
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+}
+
+.navbar a {
+  color: white;
+}
+
+.navbar a:hover {
+  color: rgb(82, 72, 72);
+  transform: scale(1.05);
+}
+
+.searchbar {
+  color: white;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.searchbar input {
+  border: none;
+  margin: 10px 10px 10px 20px;
+  background-color: transparent;
+  color: white;
+}
+
+.searchbar button {
+  border: none;
+  background-color: transparent;
+  margin-right: 20px;
+}
+
+.main {
+  background-color: transparent;
+  margin: 20px;
+}
+
+.container {
+  margin-top: 150px;
+  margin-bottom: 700px;
+}
+
+.notfound {
+  display: flex;
+  height: 600px;
+  justify-content: center;
+  vertical-align: middle;
+}

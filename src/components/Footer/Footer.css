@@ -7,9 +7,6 @@ body,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
 }
-::-webkit-scrollbar {
-  width: 0px;
-}
 
 a {
   color: inherit;
@@ -18,7 +15,7 @@ a {
 }
 
 .footer-container {
-  background-color: #282b2e;
+  background-color: #000000;
   font-size: 13px;
   color: #e4ecf3;
   text-align: center;
@@ -31,6 +28,9 @@ a {
   gap: 10px;
   justify-content: center;
   line-height: 2.3;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .icons {

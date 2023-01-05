@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Header, Footer } from "./components";
 
 import MovieBox from "./components/MovieBox/MovieBox";
 import test from "./assets/notfound.png";
 import logo from "./assets/logo.png";
 import { AiOutlineSearch } from "react-icons/ai";
+
+import "./styles.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -15,18 +17,24 @@ function App() {
   // const [keyword, setKeyword] = useState("movie/popular");
   const [keyword, setKeyword] = useState("trending/all/day");
 
-  const API_URL = `https://api.themoviedb.org/3/${keyword}?api_key=e5a60f35d7919e32ad95ee1d02bf9391`;
+  const API_URL = `https://api.themoviedb.org/3/${keyword}?api_key=e5a60f35d7919e32ad95ee1d02bf9391&page=1`;
+  const API_URL2 = `https://api.themoviedb.org/3/${keyword}?api_key=e5a60f35d7919e32ad95ee1d02bf9391&page=2`;
   const API_SEARCH =
     "https://api.themoviedb.org/3/search/movie?api_key=e5a60f35d7919e32ad95ee1d02bf9391&query";
-  function test() {
+  function apiCall() {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results);
       });
+    fetch(API_URL2)
+      .then((res) => res.json())
+      .then((data) => {
+        setMovies((oldMovies) => [...oldMovies, data.results]);
+      });
   }
   useEffect(() => {
-    test();
+    apiCall();
   }, []);
 
   const searchMovie = async (query) => {
@@ -40,35 +48,35 @@ function App() {
     setQuery(e.target.value);
   };
 
-  function descriptionHandler() {
+  function Popular() {
     setKeyword("trending/all/day");
     console.log(keyword);
-    test();
+    apiCall();
   }
 
-  const descriptionHandler2 = () => {
+  const NowPlaying = () => {
     setKeyword("movie/popular");
     console.log(keyword);
-    test();
+    apiCall();
+  };
+
+  const TopRated = () => {
+    setKeyword("movie/top_rated");
+    console.log(keyword);
+    apiCall();
   };
 
   return (
     <>
-      {/* <Navbar />
-      <Header movies={movies} />
-      <Footer /> */}
+    <div className="all">
       <div className="navbar_container">
         <div className="navbar">
           <a href="/home">
             <img src={logo} alt="logo" className="logo" />
           </a>
-          <button onClick={descriptionHandler}>Popular</button>
-          <a onClick={descriptionHandler2}>Now Playing</a>
-          <a href="/home">Top Rated</a>
-          <div
-            className="me-auto my-2 my-lg-3"
-            style={{ maxHeight: "100px" }}
-          ></div>
+          <a onClick={Popular}>Popular</a>
+          <a onClick={NowPlaying}>Now Playing</a>
+          <a onClick={TopRated}>Top Rated</a>
         </div>
         <div className="searchbar">
           <input
@@ -81,17 +89,16 @@ function App() {
             onChange={changeHandler}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-                searchMovie(query)
+                searchMovie(query);
               }
-            }
-          }
+            }}
           />
           <button onClick={() => searchMovie(query)} type="search">
             <AiOutlineSearch size={25} />
           </button>
         </div>
       </div>
-      <div>
+      <div className="main">
         {movies.length > 0 ? (
           <div className="container">
             <div className="grid">
@@ -101,10 +108,12 @@ function App() {
             </div>
           </div>
         ) : (
-          <div className="image_container">
+          <div className="notfound">
             <img src={test} alt="hi" />
+            <span>Please try different keyword</span>
           </div>
         )}
+      </div>
       </div>
       <Footer />
     </>
