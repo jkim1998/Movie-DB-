@@ -79,8 +79,14 @@ function App() {
             name="query"
             value={query}
             onChange={changeHandler}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                searchMovie(query)
+              }
+            }
+          }
           />
-          <button onClick={() => searchMovie(query)}>
+          <button onClick={() => searchMovie(query)} type="search">
             <AiOutlineSearch size={25} />
           </button>
         </div>
