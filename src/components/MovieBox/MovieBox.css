@@ -1,0 +1,64 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 0.2em;
+}
+
+h2 {
+  background-color: antiquewhite;
+}
+
+.movies {
+  margin: 10px;
+}
+
+.image_container {
+  cursor: pointer;
+  height: 400px;
+}
+
+.image_container img {
+  width: 100%;
+  max-height: 100%;
+  cursor: pointer;
+  transition: 0.7s;
+  border-radius: 20px;
+}
+
+.image_container img:hover {
+  transform: scale(1.05);
+  opacity: 40%;
+}
+
+.overlay {
+  position: relative;
+  bottom: 200px;
+  justify-content: center;
+}
+
+.btn {
+  margin: 5px;
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.movie_detail {
+  justify-content: center;
+  display: flex;
+  margin: 20px;
+}
+
+.test {
+  position: absolute;
+  left: 0%;
+  top: 20%;
+}
