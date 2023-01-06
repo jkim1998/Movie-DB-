@@ -2,10 +2,9 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { AiFillGithub, AiFillLinkedin, AiOutlineBold } from "react-icons/ai";
 
-import './Footer.css';
+import "./Footer.css";
 
 const Footer = () => {
-
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -32,43 +31,43 @@ const Footer = () => {
     <div className="footer-container">
       <div className="footer-top">
         <div className="category">
-          <h>About</h>
-          <a>Logitech Story</a>
-          <a>Careers</a>
-          <a>Investors</a>
-          <a>Blog</a>
-          <a>Press</a>
+          <h1>About</h1>
+          <a href="FAQ">FAQ</a>
+          <a>Corporate information</a>
           <a>Contact us</a>
         </div>
         <div className="category">
-          <h>Values</h>
-          <a>Social Impact</a>
-          <a>Sustainability</a>
-          <a>Recylcing</a>
-          <a>Acesssibvility</a>
+          <h1>Services</h1>
+          <a>Help Center</a>
         </div>
         <div className="category">
-          <h>Partners</h>
-          <a>Affilate Program</a>
-          <a>Influencer</a>
-        </div>
-        <div className="category">
-          <h>Customers</h>
-          <a>Return Policy</a>
-          <a>Email Preferences</a>
-          <a>Student Discount</a>
+          <h1>Legal</h1>
+          <a>Privacy Policy</a>
+          <a>Terms of use</a>
         </div>
       </div>
       <div className="footer-bot">
         <div className="social">
           <p className="icons">
-            <a href="https://github.com/jkim1998" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/jkim1998"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <AiFillGithub />
             </a>
-            <a href="https://www.linkedin.com/in/jkim980/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/in/jkim980/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <AiFillLinkedin />
             </a>
-            <a href="https://jonathankim980.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://jonathankim980.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <AiOutlineBold />
             </a>
           </p>
@@ -87,14 +86,18 @@ const Footer = () => {
               <input type="submit" value="Subscribe" className="send" />
             </div>
             <input type="checkbox" />
-            <span>Yes, I want to receive news and product emails.</span>
-            <br />
+            <span>Yes, I want to sign up for newsletter. </span>
             Read our
-          <span>
-            <a href="http://www.google.com" target="_blank" rel="noopener noreferrer" className="policy">
-              privacy policy.
-            </a>
-          </span>
+            <span>
+              <a
+                href="http://www.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="policy"
+              >
+                privacy policy.
+              </a>
+            </span>
           </form>
         </div>
       </div>

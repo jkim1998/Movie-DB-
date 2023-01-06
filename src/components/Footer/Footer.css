@@ -15,7 +15,7 @@ a {
 }
 
 .footer-container {
-  background-color: #000000;
+  background-color: rgb(214, 78, 78);
   font-size: 13px;
   color: #e4ecf3;
   text-align: center;
@@ -55,10 +55,14 @@ a {
   flex-direction: column;
 }
 
-.category h {
+.category h1 {
   font-size: 21px;
   font-weight: 600;
   text-transform: capitalize;
+}
+
+.category a {
+  margin-left: 2px;
 }
 
 .category a:hover {
@@ -80,6 +84,10 @@ a {
   text-align: left;
 }
 
+.email_container {
+  width: 300px;
+}
+
 .email {
   border: none;
   width: 100%;
@@ -94,9 +102,8 @@ a {
 
 .email_container {
   background-color: transparent;
-  padding: 5% 0 5% 5%;
+  padding: 10px;
   border: none;
-  width: 100%;
   transition: all 0.3s;
 }
 
@@ -108,16 +115,17 @@ a {
 }
 
 .send {
-  width: fit-content;
+  width: 80px;
   border: none;
   height: auto;
   cursor: pointer;
-  background-color: #9eec0b;
+  background-color: #21a764;
   padding: 0 10px;
 }
 
 .send:hover {
-  background-color: #82b81d;
+  background-color: #0c7226;
+  color: white;
 }
 
 .subscribe {
@@ -125,7 +133,7 @@ a {
 }
 
 .subscribe_container {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   height: fit-content;
   display: flex;
   flex-direction: row;
@@ -140,8 +148,8 @@ a {
   gap: 20px;
 }
 
-.icons a:hover {
-  color: white;
+.icons *:hover {
+  color: rgb(19, 18, 18);
 }
 
 .copyright {

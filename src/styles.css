@@ -1,5 +1,5 @@
 :root {
-  --base-color: #111;
+  --base-color: rgb(148, 121, 121);
   --light-grey: #282b2e;
 }
 html {
@@ -43,24 +43,31 @@ a {
 a:visited {
   color: white;
 }
+
 .logo {
-  width: 200px;
-  height: auto;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: auto;
 }
 
 .navbar_container {
-  background-color: #0000;
+  background-color: rgb(214, 78, 78);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
 .navbar {
   display: flex;
   gap: 30px;
   flex-direction: row;
+  margin-left: 30px;
+  line-height: 50px;
 }
 
 .navbar a {
@@ -68,7 +75,7 @@ a:visited {
 }
 
 .navbar a:hover {
-  color: rgb(82, 72, 72);
+  color: rgb(0, 0, 0);
   transform: scale(1.05);
 }
 
@@ -77,11 +84,13 @@ a:visited {
   background-color: transparent;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   margin: 10px;
   width: fit-content;
   height: fit-content;
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 15px;
+  margin-right: 30px;
 }
 
 .searchbar input {
@@ -89,12 +98,18 @@ a:visited {
   margin: 10px 10px 10px 20px;
   background-color: transparent;
   color: white;
+  width: 300px;
 }
+
+::placeholder {
+  color: white;
+ }
 
 .searchbar button {
   border: none;
   background-color: transparent;
   margin-right: 20px;
+  color: rgb(0, 0, 0);
 }
 
 .main {
