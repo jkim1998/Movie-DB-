@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./MovieBox.css";
 import { IoMdCloseCircle } from "react-icons/io";
 import img_notfound from "../../assets/notfound.png";
+import onClickOutside from "react-onclickoutside";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
@@ -15,46 +16,58 @@ const MovieBox = ({
   homepage,
   genres,
 }) => {
-  const [show, setShow] = useState("false");
-
-  const handleShow = () => setShow("true");
-  const handleClose = () => setShow("false");
   const [style, setStyle] = useState({ display: "none" });
+  const [open, setOpen] = useState(false);
+
+  function openMovie() {
+    setStyle({ display: "block" });
+  }
+
+  function closeMovie() {
+    setStyle({ display: "none" });
+  }
 
   function onError(e) {
-    e.target.src =
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/No_sign.svg/2048px-No_sign.svg.png";
+    e.target.src = img_notfound;
   }
+
+  let menuRef = useRef();
+
+  useEffect(()=> {
+    let handler = ()=> {
+      closeMovie();
+    }
+    document.addEventListener("mousedown", handler);
+
+    return() => {
+      document.removeEventListener("mousedown", handler)
+    }
+  });
 
   return (
     <div className="movies">
       <div>
         <div
           className="image_container"
-          onMouseEnter={(e) => {
-            setStyle({ display: "block" });
-          }}
-          onMouseLeave={(e) => {
-            setStyle({ display: "none" });
-          }}
+          // onMouseEnter={(e) => {
+          //   setStyle({ display: "block" });
+          // }}
+          // onMouseLeave={(e) => {
+          //   setStyle({ display: "none" });
+          // }}
         >
           <img
             className="poster"
             src={API_IMG + poster_path}
-            onClick={handleShow}
+            onClick={openMovie}
+            // onClick={()=>{setOpen(!open)}}
             onError={(e) => onError(e)}
           />
-          <div
-            className="overlay"
-            style={style}
-            onClick={(e) => {
-              setStyle({ display: "none" });
-            }}
-          >
-            <span className="viewmore">View More</span>
-            <div className="moviebox">
+          <div className="overlay" style={style}>
+            {/* <span className="viewmore">View More</span> */}
+            <div className="moviebox" ref={menuRef}>
               <div className="button_container">
-                <button show={show} onClick={handleClose} className="close_btn">
+                <button onClick={closeMovie} className="close_btn">
                   <IoMdCloseCircle size={50} />
                 </button>
               </div>

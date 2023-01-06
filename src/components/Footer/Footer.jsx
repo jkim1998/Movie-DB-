@@ -12,10 +12,10 @@ const Footer = () => {
 
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE,
+        "service_7j5jo9x",
+        "template_s5r0xwm",
         form.current,
-        process.env.NEXT_PUBLIC_EMAILJS_API
+        "v8YqFVE_Ecepm6GUK"
       )
       .then(
         (result) => {

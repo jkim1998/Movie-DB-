@@ -70,8 +70,10 @@ Thank you in advance.
 
 ## To-do
 - favicon/ title
-- Newsletter (emailJS)
-- onError image (currently has image link. need to replace with local image)
-- .env setting 
+- Newsletter onsucess/failure ()
+- onError image (image styling )
+- .env setting (export to APP.js and export from APP.js?)
 - deploy 
 - footer pages 
+- search null value kills pages
+- need to double click popular/now playing/ top rated
