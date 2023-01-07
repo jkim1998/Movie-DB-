@@ -1,4 +1,4 @@
-# ![WebApp](https://github.com/jkim1998/Restaurant/blob/main/screenshot/Restaurant_1.png)
+# ![WebApp](https://github.com/jkim1998/Movie-DB-/blob/main/screenshot/page1.png)
 # Movie Database App
 <table>
 <tr>
