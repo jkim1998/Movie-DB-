@@ -14,10 +14,27 @@ h2 {
 }
 
 .image_container {
-  height: 400px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.image_container img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.title_container {
+  display: flex;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.image_container p {
+  color: white;
+  font-weight: 500;
 }
 
 .image_container .poster {
@@ -84,4 +101,18 @@ h2 {
   transform: translate(-50%, -50%);
   width: 500px;
   border-radius: 14px;
+}
+
+.moviebox *{
+  padding-bottom: 10px;
+}
+
+.moviebox h6 {
+  padding-top: 10px;
+  font-size:20px;
+  font-weight: 500;
+}
+
+.moviebox p {
+  text-indent: 30px;
 }

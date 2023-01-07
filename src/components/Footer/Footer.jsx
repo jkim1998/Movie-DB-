@@ -8,8 +8,10 @@ const Footer = () => {
   const form = useRef();
 
   const [status, setStatus] = useState("");
+  const [error_email, setErrorEmail] = useState("");
 
   const sendEmail = (e) => {
+    //prevent re-render
     e.preventDefault();
 
     emailjs
@@ -22,7 +24,7 @@ const Footer = () => {
       .then(
         (result) => {
           console.log(result.text);
-          console.log("message sent");
+          // console.log("message sent");
           setStatus("SUCCESS");
         },
         (error) => {
@@ -41,6 +43,8 @@ const Footer = () => {
   //   }
   // }, [status]);
 
+
+  
   return (
     <div className="footer-container">
       <div className="footer-top">
@@ -97,11 +101,13 @@ const Footer = () => {
                     name="user_email"
                     placeholder="your email address"
                     className="email"
+                    required="required"
+                    onInvalid={invalidEmail()}
                   />
                 </div>
                 <input type="submit" value="Subscribe" className="send" />
               </div>
-              <input type="checkbox" />
+              <input type="checkbox" required="required" />
               <span>Yes, I want to sign up for newsletter. </span>
               Read our
               <span>
@@ -120,9 +126,21 @@ const Footer = () => {
       </div>
       <div className="footer_footer">
         <div className="copyright">
-          <p>©2022 Jonathan Kim. All rights reserved</p> |<a>Terms of Use</a> |
-          <a>Web Privacy Policy</a> |<a>Product Privacy Policy</a> |
-          <a>Cookie Settings</a> |<a>Sitemap</a>
+            <p>©2022 Jonathan Kim. All rights reserved</p>
+          <ul>
+            <li>
+              <a>Terms of Use</a>
+            </li>
+            <li>
+              <a>Web Privacy Policy</a>
+            </li>
+            <li>
+              <a>Product Privacy Policy</a>
+            </li>
+            <li>
+              <a>Sitemap</a>
+            </li>
+          </ul>
         </div>
         <div>
           <p>United States</p>
@@ -136,5 +154,11 @@ const renderAlert = () => (
     <p>You are Subscribed to Newsletter!</p>
   </div>
 );
+
+const invalidEmail = () => {
+  <div>
+    <p>this is required</p>
+  </div>;
+};
 
 export default Footer;

@@ -9,10 +9,7 @@ import "./styles.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
-
   const [query, setQuery] = useState("");
-
-  // const [keyword, setKeyword] = useState("movie/popular");
   const [keyword, setKeyword] = useState("trending/all/day");
 
   const API_URL = `https://api.themoviedb.org/3/${keyword}?api_key=e5a60f35d7919e32ad95ee1d02bf9391&page=1`;
@@ -20,6 +17,7 @@ function App() {
   const API_SEARCH =
     "https://api.themoviedb.org/3/search/movie?api_key=e5a60f35d7919e32ad95ee1d02bf9391&query";
   const url = `https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
+
   function apiCall() {
     fetch(API_URL)
       .then((res) => res.json())
@@ -37,9 +35,13 @@ function App() {
   }, []);
 
   const searchMovie = async (query) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    setMovies(data.results);
+    if (query !== "") {
+      const res = await fetch(url);
+      const data = await res.json();
+      setMovies(data.results);
+    }
+    // else
+    // console.log("empty")
   };
 
   const changeHandler = (e) => {
@@ -47,21 +49,21 @@ function App() {
   };
 
   function Popular() {
-    setKeyword("trending/all/day");
-    console.log(keyword);
+    setKeyword("movie/popular");
     apiCall();
+    console.log(keyword);
   }
 
   const NowPlaying = () => {
-    setKeyword("movie/popular");
-    console.log(keyword);
+    setKeyword("trending/all/day");
     apiCall();
+    console.log(keyword);
   };
 
   const TopRated = () => {
     setKeyword("movie/top_rated");
-    console.log(keyword);
     apiCall();
+    console.log(keyword);
   };
 
   return (

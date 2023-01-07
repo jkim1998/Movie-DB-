@@ -69,9 +69,8 @@ Thank you in advance.
 - Deployment: Vercel
 
 ## To-do
-- Newsletter (sucess message style)
+- Newsletter (custom required form)
 - .env setting (export to APP.js and export from APP.js?)
 - deploy 
 - footer pages 
-- search null value kills pages
 - need to double click popular/now playing/ top rated

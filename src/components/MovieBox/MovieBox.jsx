@@ -33,15 +33,15 @@ const MovieBox = ({
 
   let menuRef = useRef();
 
-  useEffect(()=> {
-    let handler = ()=> {
+  useEffect(() => {
+    let handler = () => {
       closeMovie();
-    }
+    };
     document.addEventListener("mousedown", handler);
 
-    return() => {
-      document.removeEventListener("mousedown", handler)
-    }
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
   });
 
   return (
@@ -63,6 +63,9 @@ const MovieBox = ({
             // onClick={()=>{setOpen(!open)}}
             onError={(e) => onError(e)}
           />
+          <div className="title_container">
+            {/* <p>{title}</p> */}
+          </div>
           <div className="overlay" style={style}>
             {/* <span className="viewmore">View More</span> */}
             <div className="moviebox" ref={menuRef}>
@@ -79,7 +82,7 @@ const MovieBox = ({
                 />
               </div>
               <h3>{title}</h3>
-              <h4>IMDb: {vote_average}</h4>
+              <h4>IMDb: {vote_average} / 10</h4>
               <h5>Release Date: {release_date}</h5>
               <br></br>
               <h6>Overview</h6>
