@@ -16,11 +16,13 @@ https://movie-gsal6goqw-jkim1998.vercel.app/
 
 ## Site
 
-### 1
+### Main Page
 
-### 2
+### Search bar
 
-### 3
+### Movie Details
+
+### Footer
 
 
 ## Mobile support
@@ -61,16 +63,21 @@ Thank you in advance.
 
 ## Dependecies 
 
-- React-icons: ('npm install react-icons --save')
+- React-icons: '''npm install react-icons --save'''
+- EmailJS: ''''npm install @emailjs/browser''''
 
 
 ## Others
 
 - Deployment: Vercel
+- API: TMDB API 
 
 ## To-do
-- Newsletter (custom required form)
-- .env setting (export to APP.js and export from APP.js?)
-- deploy 
+#High priority
+- need to double click popular/now playing/ top rated (Usestate is not updated on first click)
+- href for each category
 - footer pages 
-- need to double click popular/now playing/ top rated
+
+#Low priority
+- .env setting (export to APP.js and export from APP.js?)
+- Newsletter (custom required form)
