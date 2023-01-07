@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { AiFillGithub, AiFillLinkedin, AiOutlineBold } from "react-icons/ai";
 
@@ -6,6 +6,8 @@ import "./Footer.css";
 
 const Footer = () => {
   const form = useRef();
+
+  const [status, setStatus] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -21,12 +23,24 @@ const Footer = () => {
         (result) => {
           console.log(result.text);
           console.log("message sent");
+          setStatus("SUCCESS");
         },
         (error) => {
           console.log(error.text);
+          setStatus("FAILED");
         }
       );
   };
+
+  // success message time out after certain time(3000)
+  // useEffect(() => {
+  //   if (status === "SUCCESS") {
+  //     setTimeout(() => {
+  //       setStatus("");
+  //     }, 3000);
+  //   }
+  // }, [status]);
+
   return (
     <div className="footer-container">
       <div className="footer-top">
@@ -73,32 +87,35 @@ const Footer = () => {
           </p>
         </div>
         <div className="contactMe">
-          <form ref={form} onSubmit={sendEmail}>
-            <div className="subscribe_container">
-              <div className="email_container">
-                <input
-                  type="email"
-                  name="user_email"
-                  placeholder="your email address"
-                  className="email"
-                />
+          {status && renderAlert()}
+          {!status && (
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="subscribe_container">
+                <div className="email_container">
+                  <input
+                    type="email"
+                    name="user_email"
+                    placeholder="your email address"
+                    className="email"
+                  />
+                </div>
+                <input type="submit" value="Subscribe" className="send" />
               </div>
-              <input type="submit" value="Subscribe" className="send" />
-            </div>
-            <input type="checkbox" />
-            <span>Yes, I want to sign up for newsletter. </span>
-            Read our
-            <span>
-              <a
-                href="http://www.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="policy"
-              >
-                privacy policy.
-              </a>
-            </span>
-          </form>
+              <input type="checkbox" />
+              <span>Yes, I want to sign up for newsletter. </span>
+              Read our
+              <span>
+                <a
+                  href="http://www.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="policy"
+                >
+                  privacy policy.
+                </a>
+              </span>
+            </form>
+          )}
         </div>
       </div>
       <div className="footer_footer">
@@ -114,5 +131,10 @@ const Footer = () => {
     </div>
   );
 };
+const renderAlert = () => (
+  <div className="confirmation">
+    <p>You are Subscribed to Newsletter!</p>
+  </div>
+);
 
 export default Footer;

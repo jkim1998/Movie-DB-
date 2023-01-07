@@ -69,9 +69,7 @@ Thank you in advance.
 - Deployment: Vercel
 
 ## To-do
-- favicon/ title
-- Newsletter onsucess/failure ()
-- onError image (image styling )
+- Newsletter (sucess message style)
 - .env setting (export to APP.js and export from APP.js?)
 - deploy 
 - footer pages 
