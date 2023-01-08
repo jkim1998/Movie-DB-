@@ -74,8 +74,7 @@ Thank you in advance.
 
 ## To-do
 #High priority
-- href for each category
-- footer pages 
+- mobile, zoomed in/out style 
 
 #Low priority
 - .env setting (export to APP.js and export from APP.js?)

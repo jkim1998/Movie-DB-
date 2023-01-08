@@ -48,6 +48,10 @@ a {
   padding-bottom: 30px;
 }
 
+.text_align_right {
+  text-align: right;
+}
+
 .category {
   height: max-content;
   width: auto;
@@ -65,7 +69,8 @@ a {
   margin-left: 2px;
 }
 
-.category a:hover, li *:hover {
+.category a:hover,
+li *:hover {
   text-decoration: underline;
 }
 
@@ -227,10 +232,11 @@ span {
   flex-direction: row;
   justify-content: space-between;
   width: 80%;
+  color: white;
 }
 
+/* 
 ul {
-  /* list-style-type: none; */
   list-style: "|";
   display: flex;
   flex-direction: row;
@@ -239,4 +245,4 @@ ul {
 li {
 padding-right: .6em;
 padding-left: .6em;
-}
+} */

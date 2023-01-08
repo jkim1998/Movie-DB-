@@ -1,6 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { AiFillGithub, AiFillLinkedin, AiOutlineBold } from "react-icons/ai";
+
 
 import "./Footer.css";
 
@@ -43,25 +45,23 @@ const Footer = () => {
   //   }
   // }, [status]);
 
-
-  
   return (
     <div className="footer-container">
       <div className="footer-top">
         <div className="category">
           <h1>About</h1>
-          <a href="FAQ">FAQ</a>
-          <a>Corporate information</a>
-          <a>Contact us</a>
+          <a href="contact">Contact me</a>
+          <a>Source Code</a>
         </div>
         <div className="category">
           <h1>Services</h1>
           <a>Help Center</a>
         </div>
-        <div className="category">
-          <h1>Legal</h1>
-          <a>Privacy Policy</a>
-          <a>Terms of use</a>
+        <div className="category text_align_right">
+          <h1>Contact Info</h1>
+          <span>Jonathan Kim</span>
+          <span>(737) 484 - 2504</span>
+          <span>JonathanKim980@gmail.com</span>
         </div>
       </div>
       <div className="footer-bot">
@@ -109,7 +109,7 @@ const Footer = () => {
               </div>
               <input type="checkbox" required="required" />
               <span>Yes, I want to sign up for newsletter. </span>
-              Read our
+              {/* Read our
               <span>
                 <a
                   href="http://www.google.com"
@@ -119,28 +119,14 @@ const Footer = () => {
                 >
                   privacy policy.
                 </a>
-              </span>
+              </span> */}
             </form>
           )}
         </div>
       </div>
       <div className="footer_footer">
         <div className="copyright">
-            <p>©2022 Jonathan Kim. All rights reserved</p>
-          <ul>
-            <li>
-              <a>Terms of Use</a>
-            </li>
-            <li>
-              <a>Web Privacy Policy</a>
-            </li>
-            <li>
-              <a>Product Privacy Policy</a>
-            </li>
-            <li>
-              <a>Sitemap</a>
-            </li>
-          </ul>
+          <p>©2022 Jonathan Kim. All rights reserved</p>
         </div>
         <div>
           <p>United States</p>
