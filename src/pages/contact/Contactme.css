@@ -2,6 +2,10 @@
   color: white;
 }
 
+input {
+    color:black;
+}
+
 .banner {
   display: flex;
   flex-direction: column;

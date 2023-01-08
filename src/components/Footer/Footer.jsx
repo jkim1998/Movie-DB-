@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="category">
           <h1>About</h1>
           <a href="contact">Contact me</a>
-          <a>Source Code</a>
+          <a href="https://github.com/jkim1998/Movie-DB-" target="_blank">Source Code</a>
         </div>
         <div className="category">
           <h1>Services</h1>

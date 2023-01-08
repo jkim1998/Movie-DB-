@@ -77,5 +77,6 @@ Thank you in advance.
 - mobile, zoomed in/out style 
 
 #Low priority
+- help center? or replace with something useful
 - .env setting (export to APP.js and export from APP.js?)
 - Newsletter (custom required form)
