@@ -11,18 +11,32 @@
 
 ## Demo
 Here is a working live demo :  
-https://movie-gsal6goqw-jkim1998.vercel.app/
+https://movie-db-sand.vercel.app/
 
 
-## Site
+## Site | Features
 
 ### Main Page
 
 ### Search bar
 
+Search for movies in the search bar.
+You can either click or press enter.
+
+
+make sure to use correct keyword
+
 ### Movie Details
 
+Click the poster to open a pop-up that displays detailed information about the movie. click anywhere outside to exit 
+
 ### Footer
+
+A short section that contains brief information about the page 
+
+### Contact me page
+
+You can send me an Email on this page. Please fill out your name and email address so I can get back to you!
 
 
 ## Mobile support
