@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Navbar } from "../../components";
 import MovieBox from "../../components/MovieBox/MovieBox";
 import img_notfound from "../../assets/notfound.png";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -9,11 +8,21 @@ import "../../styles.css";
 function Main() {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
-  const [keyword, setKeyword] = useState("trending/all/day");
+  const [keyword, setKeyword] = useState("movie/now_playing");
 
-  const API_URL = `https://api.themoviedb.org/3/${keyword}?api_key=e5a60f35d7919e32ad95ee1d02bf9391&page=1`;
-  const API_URL2 = `https://api.themoviedb.org/3/${keyword}?api_key=e5a60f35d7919e32ad95ee1d02bf9391&page=2`;
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
+  const API_URL =
+    process.env.REACT_APP_API_URL +
+    `/${keyword}?api_key=` +
+    process.env.REACT_APP_API_KEY +
+    `&page=1`;
+  const API_URL2 =
+    process.env.REACT_APP_API_URL +
+    `/${keyword}?api_key=` +
+    process.env.REACT_APP_API_KEY +
+    `&page=2`;
+  const url =
+    process.env.REACT_APP_API_URL +
+    `/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
 
   const apiCall = () => {
     fetch(API_URL)
@@ -32,11 +41,17 @@ function Main() {
     apiCall();
   }, [keyword]); //adding useState value to reflect setState synchronously. removing it will make is async and require double clicks.
 
-  function Popular() {
+  const Latest = () => {
+    setKeyword("movie/latest");
+    apiCall();
+    // console.log(keyword);
+  };
+
+  const Popular = () => {
     setKeyword("movie/popular");
     apiCall();
     // console.log(keyword);
-  }
+  };
 
   const NowPlaying = () => {
     setKeyword("trending/all/day");
@@ -51,6 +66,14 @@ function Main() {
       return modifiedValue;
     });
     apiCall();
+    console.log(process.env.REACT_APP_API_KEY);
+    console.log(process.env.REACT_APP_API_TOKEN);
+    console.log(process.env.REACT_APP_API_URL);
+    console.log(process.env.REACT_APP_API_IMAGE);
+    console.log(process.env.REACT_APP_API_SEARCH);
+    console.log(process.env.REACT_APP_EMAILJS_SERVICE);
+    console.log(process.env.REACT_APP_EMAILJS_TEMPLATE);
+    console.log(process.env.REACT_APP_MAILJS_API);
   };
 
   const searchMovie = async (query) => {
@@ -72,7 +95,7 @@ function Main() {
       <div className="all">
         <div className="navbar_container">
           <div className="navbar">
-            <a href="/home" className="logo">
+            <a onClick={Latest} className="logo">
               Movie++
             </a>
             <a onClick={Popular}>Popular</a>

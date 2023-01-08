@@ -45,6 +45,10 @@ const Term = () => {
       }, 3000);
 
       document.getElementById("form").reset();
+    } else {
+      setTimeout(() => {
+        setStatus("");
+      }, 3000);
     }
   }, [status]);
   return (
@@ -55,7 +59,8 @@ const Term = () => {
       </div>
       <div className="main_page">
         <div className="confirmation">
-          {status && renderAlert()}
+          {status === "SUCCESS" && renderAlert_success()}
+          {status === "FAILED" && renderAlert_fail()}
           <form ref={form} onSubmit={sendEmail} id="form">
             <input
               type="text"
@@ -99,9 +104,14 @@ const Term = () => {
     </>
   );
 };
-const renderAlert = () => (
+const renderAlert_success = () => (
   <div className="confirmation">
     <p>Your message has been sent</p>
+  </div>
+);
+const renderAlert_fail = () => (
+  <div className="confirmation">
+    <p>Error. Please try again later</p>
   </div>
 );
 
