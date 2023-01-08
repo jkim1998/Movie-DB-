@@ -74,7 +74,6 @@ Thank you in advance.
 
 ## To-do
 #High priority
-- need to double click popular/now playing/ top rated (Usestate is not updated on first click)
 - href for each category
 - footer pages 
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Header, Footer } from "./components";
-
+import { flushSync } from "react-dom";
 import MovieBox from "./components/MovieBox/MovieBox";
 import img_notfound from "./assets/notfound.png";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -14,11 +14,9 @@ function App() {
 
   const API_URL = `https://api.themoviedb.org/3/${keyword}?api_key=e5a60f35d7919e32ad95ee1d02bf9391&page=1`;
   const API_URL2 = `https://api.themoviedb.org/3/${keyword}?api_key=e5a60f35d7919e32ad95ee1d02bf9391&page=2`;
-  const API_SEARCH =
-    "https://api.themoviedb.org/3/search/movie?api_key=e5a60f35d7919e32ad95ee1d02bf9391&query";
   const url = `https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
 
-  function apiCall() {
+  const apiCall = () => {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
@@ -29,10 +27,32 @@ function App() {
       .then((data) => {
         setMovies((oldMovies) => [...oldMovies, ...data.results]);
       });
-  }
+  };
+
   useEffect(() => {
     apiCall();
-  }, []);
+  }, [keyword]); //adding useState value to reflect setState synchronously. removing it will make is async and require double clicks.
+
+  function Popular() {
+    setKeyword("movie/popular");
+    apiCall();
+    // console.log(keyword);
+  }
+
+  const NowPlaying = () => {
+    setKeyword("trending/all/day");
+    apiCall();
+    // console.log(keyword);
+  };
+
+  const TopRated = () => {
+    setKeyword(keyword => {
+      const modifiedValue = "movie/top_rated";
+      // console.log(keyword);
+      return modifiedValue;
+    });
+    apiCall();
+  }
 
   const searchMovie = async (query) => {
     if (query !== "") {
@@ -46,24 +66,6 @@ function App() {
 
   const changeHandler = (e) => {
     setQuery(e.target.value);
-  };
-
-  function Popular() {
-    setKeyword("movie/popular");
-    apiCall();
-    console.log(keyword);
-  }
-
-  const NowPlaying = () => {
-    setKeyword("trending/all/day");
-    apiCall();
-    console.log(keyword);
-  };
-
-  const TopRated = () => {
-    setKeyword("movie/top_rated");
-    apiCall();
-    console.log(keyword);
   };
 
   return (
