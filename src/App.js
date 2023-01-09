@@ -5,6 +5,7 @@ import { Main, Footer } from "./components";
 import "./styles.css";
 
 import ContactUs from "./pages/contact/Contactme";
+import Help from "./pages/help/Help";
 
 function App() {
   return (
@@ -12,9 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="contact" element={<ContactUs />} />
-        <Route path="FAQ" />
-        <Route path="helpcenter" />
-        <Route path="terms"/>
+        <Route path="help" element={<Help />} />
       </Routes>
       <Footer />
     </>
