@@ -66,14 +66,6 @@ function Main() {
       return modifiedValue;
     });
     apiCall();
-    console.log(process.env.REACT_APP_API_KEY);
-    console.log(process.env.REACT_APP_API_TOKEN);
-    console.log(process.env.REACT_APP_API_URL);
-    console.log(process.env.REACT_APP_API_IMAGE);
-    console.log(process.env.REACT_APP_API_SEARCH);
-    console.log(process.env.REACT_APP_EMAILJS_SERVICE);
-    console.log(process.env.REACT_APP_EMAILJS_TEMPLATE);
-    console.log(process.env.REACT_APP_MAILJS_API);
   };
 
   const searchMovie = async (query) => {
@@ -95,7 +87,7 @@ function Main() {
       <div className="all">
         <div className="navbar_container">
           <div className="navbar">
-            <a onClick={Latest} className="logo">
+            <a onClick={Popular} className="logo">
               Movie++
             </a>
             <a onClick={Popular}>Popular</a>
