@@ -55,7 +55,7 @@ const Footer = () => {
         </div>
         <div className="category">
           <h1>Services</h1>
-          <a>Help Center</a>
+          <a href="help">Help Center</a>
         </div>
         <div className="category text_align_right">
           <h1>Contact Info</h1>
