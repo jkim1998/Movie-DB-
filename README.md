@@ -92,16 +92,11 @@ Thank you in advance.
 - React-icons: '''npm install react-icons --save'''
 - EmailJS: ''''npm install @emailjs/browser''''
 
-
 ## Others
 
 - Deployment: Vercel
 - API: TMDB API 
 
 ## To-do
-#High priority
-- mobile, zoomed in/out style 
-
-#Low priority
-- help center? or replace with something useful
-- Newsletter (custom required form)
+- responsive design
+- help center page
